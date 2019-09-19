@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<Network.Models.CreditCard>
+
+@{
+    ViewBag.Title = "OPE";
+}
+<center><h2><u>Order Preserving Encrypted Data</u></h2></center>
+<br />
+<h1>
+   Total Time elapsed:@(Convert.ToDouble(Session["End"])+ Convert.ToDouble(Session["Start"])) seconds
+</h1>
+<h1>
+    Time variation:@Session["End"].ToString() seconds
+</h1>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditCardID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.CreditCardID)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+        </tr>
+    }
+
+</table>

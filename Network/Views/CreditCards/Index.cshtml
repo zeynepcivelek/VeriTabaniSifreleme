@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<Network.Models.CreditCard>
+@{
+    ViewBag.Title = "Index";
+}
+<center><h2><u>Credit Card Informations</u></h2></center>
+<h1>
+    Time Elapsed: @Session["Start"].ToString() seconds
+</h1>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditCardID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.CreditCardID)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CreditCardID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CreditCardID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CreditCardID })
+            </td>
+        </tr>
+    }
+
+
+    @Html.ActionLink("Go to OPE", "OPE", "Home", new { target = "_blank", style = "color : red" })
+    <br />
+
+    @Html.ActionLink("Find MIN", "MIN", "Home", new { target = "_blank", style = "color : red" })
+    <br />
+    @Html.ActionLink("Find MAX", "MAX", "Home", new { target = "_blank", style = "color : red" })
+    <br />
+    @Html.ActionLink("Find COUNT", "COUNT", "Home", new { target = "_blank", style = "color : red" })
+
+</table>
